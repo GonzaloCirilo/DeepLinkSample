@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.gcirilo.deeplinksample.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_oneFragment"
+            app:destination="@id/oneFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_twoFragment"
+            app:destination="@id/twoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="com.gcirilo.deeplinksample.OneFragment"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one">
+        <deepLink
+            android:id="@+id/deepLink1"
+            app:uri="https://gcirilo.com/one" />
+    </fragment>
+    <fragment
+        android:id="@+id/twoFragment"
+        android:name="com.gcirilo.deeplinksample.TwoFragment"
+        android:label="fragment_two"
+        tools:layout="@layout/fragment_two">
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="https://gcirilo.com/inner/two/{id}" />
+    </fragment>
+</navigation>
